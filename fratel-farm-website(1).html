@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Fratel Farm Agribusiness – Farming With Purpose</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --g1:#0f2b0f;--g2:#1a3d1a;--g3:#2d6a2d;--g4:#4a9e4a;--g5:#7dc97d;--gpale:#e8f5e8;
+  --earth:#8b6914;--cream:#fafaf7;--white:#fff;
+  --txt:#1a1a1a;--txt2:#444;--txt3:#777;
+  --bdr:#d0dfc0;--shadow:0 4px 32px rgba(45,106,45,.10);
+  --r:10px;--rl:18px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--txt);line-height:1.65}
+
+/* ── TOPBAR ── */
+.topbar{background:var(--g1);padding:9px 2rem;display:flex;align-items:center;justify-content:space-between;font-size:12.5px;color:rgba(255,255,255,.65)}
+.topbar a{color:var(--g5);text-decoration:none}
+
+/* ── NAV ── */
+nav{background:#fff;border-bottom:2px solid var(--gpale);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;box-shadow:0 2px 18px rgba(0,0,0,.07)}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;padding:12px 0}
+.nav-logo img{height:46px;width:auto;border-radius:8px}
+.logo-txt{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--g2);line-height:1.2}
+.logo-sub{font-size:10px;color:var(--txt3);letter-spacing:.04em}
+.nav-links{display:flex;gap:26px;list-style:none;align-items:center}
+.nav-links a{font-size:13.5px;font-weight:500;color:var(--txt2);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--g3)}
+.nav-cta{background:var(--g3)!important;color:#fff!important;padding:9px 20px;border-radius:8px;font-size:13px!important}
+.nav-cta:hover{background:var(--g1)!important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px}
+.hamburger span{display:block;width:22px;height:2px;background:var(--txt);border-radius:2px;transition:.3s}
+
+/* ── HERO ── */
+.hero{position:relative;min-height:88vh;display:flex;align-items:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('https://fratelfarmagribusiness.ug/wp-content/uploads/2026/02/Screenshot_20240103_220129_WhatsAppBusiness-1-e1771321107252-1024x787.jpg') center/cover no-repeat}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(110deg,rgba(10,30,10,.82) 0%,rgba(20,60,20,.60) 55%,rgba(0,0,0,.25) 100%)}
+.hero-inner{position:relative;z-index:2;max-width:650px;padding:60px 2rem 60px 5vw}
+.hero-badge{display:inline-block;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);color:#b8f0b8;font-size:11.5px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:6px 16px;border-radius:20px;margin-bottom:22px}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(34px,5.5vw,62px);font-weight:700;color:#fff;line-height:1.12;margin-bottom:18px}
+.hero h1 em{font-style:italic;color:var(--g5)}
+.hero p{font-size:16px;color:rgba(255,255,255,.80);font-weight:300;max-width:500px;margin-bottom:34px;line-height:1.7}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn-primary{background:var(--g3);color:#fff;padding:14px 30px;border-radius:10px;font-size:14.5px;font-weight:500;text-decoration:none;transition:background .2s,transform .1s;border:none;cursor:pointer}
+.btn-primary:hover{background:var(--g2)}
+.btn-outline{background:transparent;color:#fff;padding:13px 28px;border-radius:10px;font-size:14.5px;font-weight:500;text-decoration:none;border:1.5px solid rgba(255,255,255,.5);transition:background .2s,border-color .2s}
+.btn-outline:hover{background:rgba(255,255,255,.1);border-color:#fff}
+
+/* ── GALLERY STRIP ── */
+.gallery-strip{display:grid;grid-template-columns:repeat(5,1fr);height:220px;overflow:hidden}
+.gallery-strip img{width:100%;height:100%;object-fit:cover;filter:brightness(.9);transition:filter .3s,transform .5s}
+.gallery-strip img:hover{filter:brightness(1.05);transform:scale(1.04)}
+
+/* ── STATS ── */
+.stats{background:var(--g2);padding:52px 2rem}
+.stats-inner{max-width:900px;margin:0 auto;text-align:center}
+.stats-inner h2{font-family:'Playfair Display',serif;font-size:28px;color:#fff;margin-bottom:8px}
+.stats-inner p{color:rgba(255,255,255,.65);font-size:14px;margin-bottom:40px}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.stat-box{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--rl);padding:28px 16px;text-align:center}
+.stat-num{font-family:'Playfair Display',serif;font-size:42px;font-weight:700;color:var(--g5);line-height:1}
+.stat-plus{font-size:24px;color:var(--g5)}
+.stat-label{font-size:13px;color:rgba(255,255,255,.65);margin-top:8px;line-height:1.4}
+
+/* ── ABOUT / CTA BAND ── */
+.cta-band{background:var(--gpale);padding:70px 2rem;text-align:center}
+.cta-band h2{font-family:'Playfair Display',serif;font-size:clamp(24px,3.5vw,36px);color:var(--g2);margin-bottom:14px;max-width:700px;margin-inline:auto}
+.cta-band p{color:var(--txt2);font-size:15px;max-width:580px;margin:0 auto 32px;line-height:1.7}
+
+/* ── SERVICES ── */
+.services{padding:80px 2rem;background:#fff}
+.section-head{text-align:center;margin-bottom:50px}
+.section-head .label{display:inline-block;background:var(--gpale);color:var(--g3);font-size:11.5px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:14px}
+.section-head h2{font-family:'Playfair Display',serif;font-size:clamp(24px,3vw,36px);color:var(--g2);margin-bottom:10px}
+.section-head p{color:var(--txt3);font-size:14.5px;max-width:520px;margin:0 auto}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;max-width:1100px;margin:0 auto}
+.svc-card{border:1px solid var(--bdr);border-radius:var(--rl);overflow:hidden;transition:box-shadow .3s,transform .3s;background:#fff}
+.svc-card:hover{box-shadow:0 12px 40px rgba(45,106,45,.15);transform:translateY(-4px)}
+.svc-img{height:200px;width:100%;object-fit:cover;display:block}
+.svc-body{padding:22px 22px 26px}
+.svc-icon{width:38px;height:38px;background:var(--gpale);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+.svc-icon svg{width:20px;height:20px;fill:var(--g3)}
+.svc-body h3{font-family:'Playfair Display',serif;font-size:18px;color:var(--g2);margin-bottom:8px}
+.svc-body p{font-size:13.5px;color:var(--txt3);line-height:1.6}
+.svc-link{display:inline-block;margin-top:14px;font-size:13px;font-weight:500;color:var(--g3);text-decoration:none}
+.svc-link:hover{color:var(--g2)}
+
+/* ── TESTIMONIALS ── */
+.testimonials{background:var(--cream);padding:80px 2rem}
+.testi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:900px;margin:0 auto}
+.testi-card{background:#fff;border:1px solid var(--bdr);border-radius:var(--rl);padding:28px 26px;position:relative}
+.testi-card::before{content:'"';position:absolute;top:16px;right:22px;font-family:'Playfair Display',serif;font-size:60px;color:var(--gpale);line-height:1}
+.testi-card p{font-size:14px;color:var(--txt2);line-height:1.7;margin-bottom:18px;font-style:italic}
+.testi-author{display:flex;align-items:center;gap:12px}
+.testi-avatar{width:40px;height:40px;border-radius:50%;background:var(--g3);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:500;font-size:14px;flex-shrink:0}
+.testi-author strong{font-size:14px;color:var(--txt);display:block}
+.testi-stars{color:#f5a623;font-size:12px;margin-top:2px}
+
+/* ── INQUIRY FORM ── */
+.inquiry-section{background:var(--g1);position:relative;overflow:hidden;padding:90px 2rem}
+.inquiry-section::before{content:'';position:absolute;inset:0;background:url('https://fratelfarmagribusiness.ug/wp-content/uploads/2026/02/20260215_131101-768x432.jpg') center/cover no-repeat;opacity:.10}
+.inquiry-inner{position:relative;z-index:2;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1.1fr;gap:60px;align-items:start}
+.inquiry-left{}
+.inquiry-left .label{display:inline-block;background:rgba(255,255,255,.1);color:var(--g5);font-size:11.5px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:18px;border:1px solid rgba(255,255,255,.15)}
+.inquiry-left h2{font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,42px);color:#fff;margin-bottom:16px;line-height:1.18}
+.inquiry-left p{color:rgba(255,255,255,.70);font-size:15px;line-height:1.7;margin-bottom:36px}
+.contact-facts{display:flex;flex-direction:column;gap:18px}
+.cfact{display:flex;align-items:flex-start;gap:14px}
+.cfact-icon{width:42px;height:42px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.cfact-icon svg{width:18px;height:18px;fill:var(--g5)}
+.cfact-txt strong{display:block;color:#fff;font-size:13.5px;font-weight:500;margin-bottom:2px}
+.cfact-txt span{font-size:13px;color:rgba(255,255,255,.60)}
+.farm-imgs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:36px}
+.farm-imgs img{width:100%;height:120px;object-fit:cover;border-radius:10px;border:2px solid rgba(255,255,255,.08)}
+
+/* form card */
+.form-card{background:#fff;border-radius:var(--rl);padding:40px 36px;box-shadow:0 24px 60px rgba(0,0,0,.30)}
+.form-card h3{font-family:'Playfair Display',serif;font-size:22px;color:var(--g2);margin-bottom:6px}
+.form-card .sub{font-size:13.5px;color:var(--txt3);margin-bottom:24px}
+.fdivider{height:3px;width:42px;background:var(--g4);border-radius:2px;margin-bottom:28px}
+
+/* progress */
+.prog-wrap{margin-bottom:26px}
+.prog-labels{display:flex;justify-content:space-between;font-size:12px;color:var(--txt3);margin-bottom:5px}
+.prog-bar{height:4px;background:#eef0eb;border-radius:3px;overflow:hidden}
+.prog-fill{height:100%;background:var(--g4);border-radius:3px;transition:width .4s ease;width:0%}
+
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{margin-bottom:18px}
+.field label{display:block;font-size:12.5px;font-weight:500;color:var(--txt2);margin-bottom:5px}
+.field label .req{color:var(--g4);margin-left:2px}
+.field input,.field select,.field textarea{width:100%;padding:10px 13px;border:1.5px solid var(--bdr);border-radius:var(--r);font-family:'DM Sans',sans-serif;font-size:13.5px;color:var(--txt);background:var(--cream);transition:border-color .2s,box-shadow .2s,background .2s;outline:none;-webkit-appearance:none}
+.field input::placeholder,.field textarea::placeholder{color:#bbb}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--g4);background:#fff;box-shadow:0 0 0 3px rgba(74,158,74,.12)}
+.field input.err,.field select.err,.field textarea.err{border-color:#e24b4a}
+.field .emsg{display:none;font-size:11.5px;color:#c0392b;margin-top:3px}
+.field.has-err .emsg{display:block}
+.field textarea{resize:vertical;min-height:100px}
+.field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23777' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 13px center;padding-right:34px;cursor:pointer}
+
+/* checkboxes */
+.cb-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:5px}
+.cb-item{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--txt2);cursor:pointer;padding:7px 10px;border:1.5px solid var(--bdr);border-radius:8px;transition:border-color .2s,background .2s;user-select:none}
+.cb-item:hover{border-color:var(--g4);background:var(--gpale)}
+.cb-item input{display:none}
+.cb-box{width:17px;height:17px;border:2px solid var(--bdr);border-radius:4px;background:#fff;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:border-color .2s,background .2s}
+.cb-item input:checked~.cb-box{background:var(--g3);border-color:var(--g3)}
+.cb-item input:checked~.cb-box::after{content:'';display:block;width:4px;height:8px;border:2px solid #fff;border-top:none;border-left:none;transform:rotate(45deg) translate(-1px,-1px)}
+.cb-item:has(input:checked){border-color:var(--g4);background:var(--gpale)}
+.cb-item:has(input:checked) .cb-lbl{color:var(--g2);font-weight:500}
+
+/* stars */
+.star-row{display:flex;gap:5px;margin-top:5px}
+.star{font-size:24px;cursor:pointer;color:#ddd;transition:color .15s,transform .1s;line-height:1}
+.star:hover,.star.on{color:#f5a623;transform:scale(1.12)}
+
+/* submit */
+.btn-submit{width:100%;padding:14px;background:var(--g3);color:#fff;font-family:'DM Sans',sans-serif;font-size:14.5px;font-weight:500;border:none;border-radius:var(--r);cursor:pointer;transition:background .2s,transform .1s;margin-top:6px;display:flex;align-items:center;justify-content:center;gap:8px}
+.btn-submit:hover{background:var(--g2)}
+.btn-submit:active{transform:scale(.99)}
+.btn-submit svg{width:17px;height:17px;fill:#fff}
+
+/* success */
+.success-panel{display:none;text-align:center;padding:44px 16px}
+.success-icon{width:70px;height:70px;background:var(--gpale);border-radius:50%;margin:0 auto 18px;display:flex;align-items:center;justify-content:center}
+.success-icon svg{width:34px;height:34px}
+.success-panel h3{font-family:'Playfair Display',serif;font-size:22px;color:var(--g2);margin-bottom:8px}
+.success-panel p{color:var(--txt3);font-size:13.5px;max-width:300px;margin:0 auto 22px}
+.btn-again{padding:10px 26px;background:none;border:1.5px solid var(--g3);border-radius:var(--r);color:var(--g3);font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;cursor:pointer;transition:background .2s,color .2s}
+.btn-again:hover{background:var(--g3);color:#fff}
+
+/* ── FOOTER ── */
+footer{background:var(--g1);padding:60px 2rem 30px}
+.footer-inner{max-width:1100px;margin:0 auto}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.footer-brand img{height:60px;margin-bottom:16px}
+.footer-brand p{font-size:13px;color:rgba(255,255,255,.55);line-height:1.7;max-width:240px;margin-bottom:20px}
+.social-row{display:flex;gap:10px}
+.social-btn{width:36px;height:36px;background:rgba(255,255,255,.08);border-radius:8px;display:flex;align-items:center;justify-content:center;text-decoration:none;transition:background .2s}
+.social-btn:hover{background:var(--g3)}
+.social-btn svg{width:16px;height:16px;fill:rgba(255,255,255,.7)}
+.footer-col h4{font-size:13.5px;font-weight:500;color:#fff;margin-bottom:14px;letter-spacing:.02em}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.footer-col ul li a{font-size:13px;color:rgba(255,255,255,.55);text-decoration:none;transition:color .2s}
+.footer-col ul li a:hover{color:var(--g5)}
+.footer-col .fline{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px}
+.fline svg{width:16px;height:16px;fill:var(--g5);flex-shrink:0;margin-top:2px}
+.fline span{font-size:13px;color:rgba(255,255,255,.55);line-height:1.5}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:24px;display:flex;justify-content:space-between;align-items:center;font-size:12.5px;color:rgba(255,255,255,.4)}
+.footer-bottom a{color:var(--g5);text-decoration:none}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .services-grid{grid-template-columns:1fr 1fr}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .inquiry-inner{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  .gallery-strip{grid-template-columns:repeat(3,1fr);height:160px}
+  .gallery-strip img:nth-child(4),.gallery-strip img:nth-child(5){display:none}
+  .services-grid{grid-template-columns:1fr}
+  .testi-grid{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .hero-inner{padding:60px 1.4rem}
+  .nav-links{display:none}
+  .nav-links.open{display:flex;flex-direction:column;position:absolute;top:70px;left:0;right:0;background:#fff;padding:16px 24px;border-top:1px solid var(--bdr);box-shadow:0 8px 24px rgba(0,0,0,.09);gap:14px;z-index:99}
+  .hamburger{display:flex}
+  nav{position:relative;flex-wrap:wrap}
+  .inquiry-left{display:none}
+  .form-card{padding:28px 20px}
+}
+</style>
+</head>
+<body>
+
+<!-- Topbar -->
+<div class="topbar">
+  <span>📍 Haruna Towers, Kubiri, Bombo Road, Kampala, Uganda</span>
+  <span>Mon–Sat: 8am–6pm &nbsp;|&nbsp; <a href="tel:+256792170600">+256 792 170 600</a></span>
+</div>
+
+<!-- Nav -->
+<nav id="mainNav">
+  <a href="https://fratelfarmagribusiness.ug/" class="nav-logo">
+    <img src="https://fratelfarmagribusiness.ug/wp-content/uploads/2025/11/cropped-fratel-farm-agribusiness-LOGO-white-150x140.png" alt="Fratel Farm Logo" style="background:var(--g2);padding:4px;border-radius:8px"/>
+    <div>
+      <div class="logo-txt">Fratel Farm</div>
+      <div class="logo-sub">Agribusiness</div>
+    </div>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="https://fratelfarmagribusiness.ug/">Home</a></li>
+    <li><a href="https://fratelfarmagribusiness.ug/our-farm/">About Us</a></li>
+    <li><a href="https://fratelfarmagribusiness.ug/our-produce/">Our Services</a></li>
+    <li><a href="https://fratelfarmagribusiness.ug/testimonial/">Blog</a></li>
+    <li><a href="https://fratelfarmagribusiness.ug/shop/">Shop</a></li>
+    <li><a href="#inquiry" class="nav-cta">Inquire Now</a></li>
+  </ul>
+  <button class="hamburger" id="ham" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-inner">
+    <div class="hero-badge">Kampala, Uganda</div>
+    <h1>Farming With <em>Purpose.</em></h1>
+    <p>At Fratel-Farm Agribusiness, we turn agricultural dreams into profitable, sustainable realities. Whether you're an aspiring farmer or an established agripreneur, we provide expert support to help you build, manage, and grow a productive farm enterprise.</p>
+    <div class="hero-btns">
+      <a href="#inquiry" class="btn-primary">Get a Free Consultation</a>
+      <a href="https://fratelfarmagribusiness.ug/our-farm/" class="btn-outline">Learn More</a>
+    </div>
+  </div>
+</section>
+
+<!-- Gallery Strip -->
+<div class="gallery-strip">
+  <img src="https://fratelfarmagribusiness.ug/wp-content/uploads/2026/02/20260215_131101-768x432.jpg" alt="Farm photo 1"/>
+  <img src="https://fratelfarmagribusiness.ug/wp-content/uploads/2026/02/20260215_115001-1-768x432.jpg" alt="Farm photo 2"/>
+  <img src="https://fratelfarmagribusiness.ug/wp-content/uploads/2026/02/goats_7-Photo.jpg" alt="Goats"/>
+  <img src="https://fratelfarmagribusiness.ug/wp-content/uploads/2026/03/3.jpg" alt="Farm photo 4"/>
+  <img src="https://fratelfarmagribusiness.ug/wp-content/uploads/2026/02/goats-9.jpg" alt="Goats 2"/>
+</div>
+
+<!-- Stats -->
+<section class="stats">
+  <div class="stats-inner">
+    <h2>Us in Numbers</h2>
+    <p>Trusted by farmers across Uganda</p>
+    <div class="stats-grid">
+      <div class="stat-box">
+        <div><span class="stat-num" data-target="50">0</span><span class="stat-plus">+</span></div>
+        <div class="stat-label">Farm Structures Built</div>
+      </div>
+      <div class="stat-box">
+        <div><span class="stat-num" data-target="120">0</span><span class="stat-plus">+</span></div>
+        <div class="stat-label">Farmer Trainings</div>
+      </div>
+      <div class="stat-box">
+        <div><span class="stat-num" data-target="80">0</span><span class="stat-plus">+</span></div>
+        <div class="stat-label">Farms Supplied with Good Breeds</div>
+      </div>
+      <div class="stat-box">
+        <div><span class="stat-num" data-target="200">0</span><span class="stat-plus">+</span></div>
+        <div class="stat-label">Happy Farmers</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Band -->
+<section class="cta-band">
+  <h2>Offering The Best Consultancy Services</h2>
+  <p>From livestock production to farm infrastructure, equipment sourcing to investment guidance, Fratel Agribusiness Farm stands as your reliable partner in agribusiness excellence.</p>
+  <a href="#inquiry" class="btn-primary">Contact Us Today</a>
+</section>
+
+<!-- Services -->
+<section class="services">
+  <div class="section-head">
+    <div class="label">What We Do</div>
+    <h2>Our Services</h2>
+    <p>Comprehensive agribusiness solutions for every stage of your farming journey</p>
+  </div>
+  <div class="services-grid">
+    <div class="svc-card">
+      <img class="svc-img" src="https://fratelfarmagribusiness.ug/wp-content/uploads/2026/02/20260215_131101-768x432.jpg" alt="Piggery"/>
+      <div class="svc-body">
+        <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg></div>
+        <h3>Piggery Farming</h3>
+        <p>Expert setup and management of profitable pig farms — from housing design to breed selection and market preparation.</p>
+        <a href="https://fratelfarmagribusiness.ug/piggery-farming/" class="svc-link">Learn more →</a>
+      </div>
+    </div>
+    <div class="svc-card">
+      <img class="svc-img" src="https://fratelfarmagribusiness.ug/wp-content/uploads/2026/02/20260215_115001-1-768x432.jpg" alt="Poultry"/>
+      <div class="svc-body">
+        <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
+        <h3>Poultry Farming</h3>
+        <p>Broiler and layer systems designed for maximum yield. We guide you from chick sourcing to egg production and processing.</p>
+        <a href="https://fratelfarmagribusiness.ug/poultry-farming/" class="svc-link">Learn more →</a>
+      </div>
+    </div>
+    <div class="svc-card">
+      <img class="svc-img" src="https://fratelfarmagribusiness.ug/wp-content/uploads/2026/02/goats_7-Photo.jpg" alt="Goats"/>
+      <div class="svc-body">
+        <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21H5.71c.51-1.2 1.06-2.45 1.74-3.55C9.29 15.94 12 14 17 14v4l5-5-5-5v4z"/></svg></div>
+        <h3>Goat & Cattle Farming</h3>
+        <p>Supplying quality breeds and providing full support for goat and cattle operations — housing, feeds, health management.</p>
+        <a href="https://fratelfarmagribusiness.ug/goat-farming/" class="svc-link">Learn more →</a>
+      </div>
+    </div>
+    <div class="svc-card">
+      <img class="svc-img" src="https://fratelfarmagribusiness.ug/wp-content/uploads/2026/03/3.jpg" alt="Farm structures"/>
+      <div class="svc-body">
+        <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></div>
+        <h3>Farm Structural Designs</h3>
+        <p>Professional farm layout and construction services — piggery, poultry, goat and integrated farm structures built to last.</p>
+        <a href="https://fratelfarmagribusiness.ug/farm-designs/" class="svc-link">Learn more →</a>
+      </div>
+    </div>
+    <div class="svc-card">
+      <img class="svc-img" src="https://fratelfarmagribusiness.ug/wp-content/uploads/2026/02/goats-9.jpg" alt="Equipment"/>
+      <div class="svc-body">
+        <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/></svg></div>
+        <h3>Farm Equipment</h3>
+        <p>Sourcing and supplying quality farm equipment and feeds tailored to your specific livestock operation needs.</p>
+        <a href="https://fratelfarmagribusiness.ug/farm-equipment/" class="svc-link">Learn more →</a>
+      </div>
+    </div>
+    <div class="svc-card">
+      <img class="svc-img" src="https://fratelfarmagribusiness.ug/wp-content/uploads/2026/02/Screenshot_20240103_220129_WhatsAppBusiness-1-e1771321107252-1024x787.jpg" alt="Consulting"/>
+      <div class="svc-body">
+        <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg></div>
+        <h3>Business Consulting</h3>
+        <p>Bankable business proposals, investor presentations, and agribusiness strategy for piggery, poultry, cattle and goat ventures.</p>
+        <a href="https://fratelfarmagribusiness.ug/farm-animals/" class="svc-link">Learn more →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="testimonials">
+  <div class="section-head">
+    <div class="label">Testimonials</div>
+    <h2>What Farmers Say About Us</h2>
+    <p>Real stories from real farmers we've worked with across Uganda</p>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <p>Hi Fratel, I am grateful for the structure you established for my farm and the advice you gave me. So far so good with minimal challenges and I have sold more animals. Great appreciation to you and your team.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">H</div>
+        <div><strong>Hillary</strong><div class="testi-stars">★★★★★</div></div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <p>Am here to say thank you Fratel in partnership with Jjave Venture Farm for giving me good breed (F1) plus the advice you gave me. Am now a happy farmer in Western Uganda, Bushenyi District.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">P</div>
+        <div><strong>Prince</strong><div class="testi-stars">★★★★★</div></div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <p>I want to take a moment to express my sincere gratitude for your guidance regarding my piggery project. You've been incredibly helpful and I am already seeing positive results — my pigs are thriving. Your continued advice has given me great confidence.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">L</div>
+        <div><strong>Lydia</strong><div class="testi-stars">★★★★★</div></div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <p>I want to appreciate Fratel-Farm Agribusiness Limited for helping me put up such a magnificent 10-sow project. I recommend them for their professional work and expertise they exhibit in piggery farming.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">K</div>
+        <div><strong>Kasagga</strong><div class="testi-stars">★★★★★</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ INQUIRY FORM ══ -->
+<section class="inquiry-section" id="inquiry">
+  <div class="inquiry-inner">
+
+    <!-- Left info -->
+    <div class="inquiry-left">
+      <div class="label">Get In Touch</div>
+      <h2>Start Your Agribusiness Journey Today</h2>
+      <p>Tell us what you need and our team will get back to you within 24 hours with expert guidance tailored to your farm goals.</p>
+
+      <div class="contact-facts">
+        <div class="cfact">
+          <div class="cfact-icon"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></div>
+          <div class="cfact-txt"><strong>Phone / WhatsApp</strong><span>+256 792 170 600</span></div>
+        </div>
+        <div class="cfact">
+          <div class="cfact-icon"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
+          <div class="cfact-txt"><strong>Email</strong><span>fratelagribusiness@gmail.com</span></div>
+        </div>
+        <div class="cfact">
+          <div class="cfact-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
+          <div class="cfact-txt"><strong>Address</strong><span>Haruna Towers, Kubiri, Bombo Road, Kampala</span></div>
+        </div>
+      </div>
+
+      <div class="farm-imgs">
+        <img src="https://fratelfarmagribusiness.ug/wp-content/uploads/2026/02/goats_7-Photo.jpg" alt="Goat farm"/>
+        <img src="https://fratelfarmagribusiness.ug/wp-content/uploads/2026/02/20260215_115001-1-768x432.jpg" alt="Farm"/>
+        <img src="https://fratelfarmagribusiness.ug/wp-content/uploads/2026/03/3.jpg" alt="Farm 3"/>
+        <img src="https://fratelfarmagribusiness.ug/wp-content/uploads/2026/02/goats-9.jpg" alt="Goats"/>
+      </div>
+    </div>
+
+    <!-- Right: form -->
+    <div class="form-card">
+      <div id="formContent">
+        <h3>Customer Inquiry Form</h3>
+        <p class="sub">We'll respond within 24 hours — Mon to Sat.</p>
+        <div class="fdivider"></div>
+
+        <div class="prog-wrap">
+          <div class="prog-labels"><span>Form progress</span><span id="pct">0%</span></div>
+          <div class="prog-bar"><div class="prog-fill" id="progFill"></div></div>
+        </div>
+
+        <div class="form-row">
+          <div class="field" id="f-name">
+            <label>Full Name <span class="req">*</span></label>
+            <input type="text" id="name" placeholder="e.g. John Mukasa" autocomplete="name"/>
+            <div class="emsg">Please enter your full name.</div>
+          </div>
+          <div class="field" id="f-phone">
+            <label>Phone / WhatsApp <span class="req">*</span></label>
+            <input type="tel" id="phone" placeholder="+256 7XX XXX XXX" autocomplete="tel"/>
+            <div class="emsg">Enter a valid phone number.</div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field" id="f-email">
+            <label>Email Address</label>
+            <input type="email" id="email" placeholder="you@example.com" autocomplete="email"/>
+            <div class="emsg">Enter a valid email.</div>
+          </div>
+          <div class="field" id="f-location">
+            <label>District / Location <span class="req">*</span></label>
+            <input type="text" id="location" placeholder="e.g. Kampala, Bushenyi…"/>
+            <div class="emsg">Please enter your location.</div>
+          </div>
+        </div>
+
+        <div class="field" id="f-service">
+          <label>Service Interested In <span class="req">*</span></label>
+          <select id="service">
+            <option value="">— Select a service —</option>
+            <option value="piggery">Piggery Farming</option>
+            <option value="poultry">Poultry Farming</option>
+            <option value="cattle">Cattle Farming</option>
+            <option value="goat">Goat Farming</option>
+            <option value="farm-design">Farm Structural Design</option>
+            <option value="equipment">Farm Equipment Supply</option>
+            <option value="breeds">Breeding Stock Supply</option>
+            <option value="consulting">Business Consulting / Proposal</option>
+            <option value="other">Other</option>
+          </select>
+          <div class="emsg">Please select a service.</div>
+        </div>
+
+        <div class="form-row">
+          <div class="field">
+            <label>Farming Experience</label>
+            <select id="experience">
+              <option value="">— Select level —</option>
+              <option value="beginner">Beginner – just starting</option>
+              <option value="some">Some – 1–3 years</option>
+              <option value="intermediate">Intermediate – 3–7 yrs</option>
+              <option value="expert">Experienced – 7+ yrs</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Budget Range (UGX)</label>
+            <select id="budget">
+              <option value="">— Select range —</option>
+              <option value="below-5m">Below 5,000,000</option>
+              <option value="5m-20m">5M – 20,000,000</option>
+              <option value="20m-50m">20M – 50,000,000</option>
+              <option value="50m-100m">50M – 100,000,000</option>
+              <option value="above-100m">Above 100,000,000</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>What Do You Need Help With?</label>
+          <div class="cb-grid">
+            <label class="cb-item"><input type="checkbox" name="needs" value="structures"/><div class="cb-box"></div><span class="cb-lbl">Farm Structures</span></label>
+            <label class="cb-item"><input type="checkbox" name="needs" value="animals"/><div class="cb-box"></div><span class="cb-lbl">Buying Animals</span></label>
+            <label class="cb-item"><input type="checkbox" name="needs" value="training"/><div class="cb-box"></div><span class="cb-lbl">Farmer Training</span></label>
+            <label class="cb-item"><input type="checkbox" name="needs" value="equipment"/><div class="cb-box"></div><span class="cb-lbl">Equipment</span></label>
+            <label class="cb-item"><input type="checkbox" name="needs" value="proposal"/><div class="cb-box"></div><span class="cb-lbl">Business Proposal</span></label>
+            <label class="cb-item"><input type="checkbox" name="needs" value="funding"/><div class="cb-box"></div><span class="cb-lbl">Investment Advice</span></label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>How Did You Hear About Us?</label>
+          <select id="referral">
+            <option value="">— Select source —</option>
+            <option value="facebook">Facebook / Social Media</option>
+            <option value="friend">Friend / Referral</option>
+            <option value="google">Google Search</option>
+            <option value="whatsapp">WhatsApp</option>
+            <option value="youtube">YouTube</option>
+            <option value="radio">Radio / TV</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Rate a Previous Experience (if applicable)</label>
+          <div class="star-row" id="starRow">
+            <span class="star" data-v="1">★</span>
+            <span class="star" data-v="2">★</span>
+            <span class="star" data-v="3">★</span>
+            <span class="star" data-v="4">★</span>
+            <span class="star" data-v="5">★</span>
+          </div>
+          <input type="hidden" id="rating" value="0"/>
+        </div>
+
+        <div class="field" id="f-message">
+          <label>Your Message / Request <span class="req">*</span></label>
+          <textarea id="message" placeholder="Tell us about your farm goals, questions, or specific requirements…"></textarea>
+          <div class="emsg">Please write a short message (min 10 characters).</div>
+        </div>
+
+        <div class="field">
+          <label>Preferred Contact Method</label>
+          <div class="cb-grid" style="grid-template-columns:repeat(3,1fr)">
+            <label class="cb-item"><input type="radio" name="contact" value="call"/><div class="cb-box"></div><span class="cb-lbl">Call</span></label>
+            <label class="cb-item"><input type="radio" name="contact" value="whatsapp"/><div class="cb-box"></div><span class="cb-lbl">WhatsApp</span></label>
+            <label class="cb-item"><input type="radio" name="contact" value="email"/><div class="cb-box"></div><span class="cb-lbl">Email</span></label>
+          </div>
+        </div>
+
+        <button class="btn-submit" id="submitBtn" type="button">
+          <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+          Send My Inquiry
+        </button>
+      </div>
+
+      <div class="success-panel" id="successPanel">
+        <div class="success-icon">
+          <svg viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="10" fill="#2d6a2d"/>
+            <path d="M7 12.5l3.5 3.5 6.5-7" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3>Inquiry Received!</h3>
+        <p>Thank you! Our team will contact you within <strong>24 hours</strong>.</p>
+        <button class="btn-again" id="btnAgain">Submit Another</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="https://fratelfarmagribusiness.ug/wp-content/uploads/2025/11/fratel-farm-agribusiness-LOGO-white-300x279.png" alt="Fratel Farm Logo"/>
+        <p>We're here to support your agribusiness journey from the ground up. Build, manage and grow with us.</p>
+        <div class="social-row">
+          <a href="https://www.tiktok.com/@olupotsilver" class="social-btn" title="TikTok"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.24 8.24 0 004.82 1.56V6.82a4.85 4.85 0 01-1.05-.13z"/></svg></a>
+          <a href="https://x.com/silverolupot4" class="social-btn" title="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="http://www.youtube.com/@FratelFarmAgribusiness" class="social-btn" title="YouTube"><svg viewBox="0 0 24 24"><path d="M21.543 6.498C22 8.28 22 12 22 12s0 3.72-.457 5.502c-.254.985-.997 1.76-1.938 2.022C17.896 20 12 20 12 20s-5.893 0-7.605-.476c-.941-.262-1.684-1.037-1.938-2.022C2 15.72 2 12 2 12s0-3.72.457-5.502c.254-.985.997-1.76 1.938-2.022C6.107 4 12 4 12 4s5.896 0 7.605.476c.941.262 1.684 1.037 1.938 2.022zM10 15.5l6-3.5-6-3.5v7z"/></svg></a>
+          <a href="https://www.linkedin.com/in/olupot-silver-b7363b22b/" class="social-btn" title="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="https://fratelfarmagribusiness.ug/">Home</a></li>
+          <li><a href="https://fratelfarmagribusiness.ug/our-farm/">About Us</a></li>
+          <li><a href="https://fratelfarmagribusiness.ug/our-produce/">Our Services</a></li>
+          <li><a href="https://fratelfarmagribusiness.ug/testimonial/">Blog</a></li>
+          <li><a href="https://fratelfarmagribusiness.ug/shop/">Shop</a></li>
+          <li><a href="https://fratelfarmagribusiness.ug/gallary/">Gallery</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Our Services</h4>
+        <ul>
+          <li><a href="https://fratelfarmagribusiness.ug/piggery-farming/">Piggery Farming</a></li>
+          <li><a href="https://fratelfarmagribusiness.ug/poultry-farming/">Poultry Farming</a></li>
+          <li><a href="https://fratelfarmagribusiness.ug/cattle-farming/">Cattle Farming</a></li>
+          <li><a href="https://fratelfarmagribusiness.ug/goat-farming/">Goat Farming</a></li>
+          <li><a href="https://fratelfarmagribusiness.ug/farm-designs/">Farm Designs</a></li>
+          <li><a href="https://fratelfarmagribusiness.ug/farm-equipment/">Farm Equipment</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="fline"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg><span>Haruna Towers, Kubiri, Bombo Road, Kampala, Uganda</span></div>
+        <div class="fline"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg><span>+256 792 170 600</span></div>
+        <div class="fline"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg><span>fratelagribusiness@gmail.com</span></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fratel Farm Agribusiness. All rights reserved.</span>
+      <a href="https://fratelfarmagribusiness.ug/">fratelfarmagribusiness.ug</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Hamburger
+  const ham=document.getElementById('ham'),nl=document.getElementById('navLinks');
+  if(ham) ham.addEventListener('click',()=>nl.classList.toggle('open'));
+
+  // Counter animation
+  const nums=document.querySelectorAll('.stat-num');
+  const ob=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        const el=e.target,target=+el.dataset.target,dur=1800;
+        let start=null;
+        function step(ts){
+          if(!start) start=ts;
+          const p=Math.min((ts-start)/dur,1);
+          el.textContent=Math.floor(p*target);
+          if(p<1) requestAnimationFrame(step);
+          else el.textContent=target;
+        }
+        requestAnimationFrame(step);
+        ob.unobserve(el);
+      }
+    });
+  },{threshold:0.5});
+  nums.forEach(n=>ob.observe(n));
+
+  // Stars
+  let rating=0;
+  const stars=document.querySelectorAll('.star');
+  stars.forEach(s=>{
+    s.addEventListener('click',()=>{rating=+s.dataset.v;document.getElementById('rating').value=rating;paint(rating);});
+    s.addEventListener('mouseenter',()=>paint(+s.dataset.v));
+    s.addEventListener('mouseleave',()=>paint(rating));
+  });
+  function paint(n){stars.forEach((s,i)=>s.classList.toggle('on',i<n));}
+
+  // Progress
+  const tracked=['name','phone','email','location','service','message'];
+  function upProg(){
+    let n=tracked.filter(id=>document.getElementById(id).value.trim()).length;
+    const p=Math.round(n/tracked.length*100);
+    document.getElementById('progFill').style.width=p+'%';
+    document.getElementById('pct').textContent=p+'%';
+  }
+  tracked.forEach(id=>{
+    const el=document.getElementById(id);
+    if(el) el.addEventListener('input',upProg);
+  });
+  document.getElementById('service').addEventListener('change',upProg);
+
+  // Validation helpers
+  function setE(fid,on){
+    const w=document.getElementById('f-'+fid),inp=document.getElementById(fid);
+    if(!w||!inp) return;
+    w.classList.toggle('has-err',on);
+    inp.classList.toggle('err',on);
+  }
+  function validate(){
+    let ok=true;
+    const n=document.getElementById('name').value.trim();
+    if(!n){setE('name',true);ok=false;}else setE('name',false);
+    const ph=document.getElementById('phone').value.trim();
+    if(!ph||ph.length<8){setE('phone',true);ok=false;}else setE('phone',false);
+    const em=document.getElementById('email').value.trim();
+    if(em&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){setE('email',true);ok=false;}else setE('email',false);
+    const lo=document.getElementById('location').value.trim();
+    if(!lo){setE('location',true);ok=false;}else setE('location',false);
+    const sv=document.getElementById('service').value;
+    if(!sv){setE('service',true);ok=false;}else setE('service',false);
+    const mg=document.getElementById('message').value.trim();
+    if(!mg||mg.length<10){setE('message',true);ok=false;}else setE('message',false);
+    return ok;
+  }
+
+  // Submit
+  document.getElementById('submitBtn').addEventListener('click',function(){
+    if(!validate()) return;
+    this.textContent='Sending…';this.disabled=true;
+    setTimeout(()=>{
+      document.getElementById('formContent').style.display='none';
+      document.getElementById('successPanel').style.display='block';
+    },1000);
+  });
+
+  // Reset
+  document.getElementById('btnAgain').addEventListener('click',()=>{
+    document.getElementById('successPanel').style.display='none';
+    document.getElementById('formContent').style.display='block';
+    const btn=document.getElementById('submitBtn');
+    btn.innerHTML='<svg viewBox="0 0 24 24" style="width:17px;height:17px;fill:#fff"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg> Send My Inquiry';
+    btn.disabled=false;
+    tracked.forEach(id=>{const el=document.getElementById(id);if(el) el.value='';});
+    ['experience','budget','referral'].forEach(id=>{const el=document.getElementById(id);if(el) el.selectedIndex=0;});
+    document.querySelectorAll('input[type=checkbox],input[type=radio]').forEach(cb=>cb.checked=false);
+    rating=0;paint(0);upProg();
+  });
+})();
+</script>
+</body>
+</html>
