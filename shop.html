@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Shop – Fratel Farm Agribusiness</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --g1:#0f2b0f;--g2:#1a3d1a;--g3:#2d6a2d;--g4:#4a9e4a;--g5:#7dc97d;--gpale:#e8f5e8;--gpale2:#d4ecd4;
+  --earth:#8b6914;--cream:#fafaf7;--white:#fff;
+  --txt:#1a1a1a;--txt2:#444;--txt3:#777;--bdr:#d0dfc0;
+  --shadow:0 4px 32px rgba(45,106,45,.10);--r:10px;--rl:18px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--txt);line-height:1.65}
+/* topbar */
+.topbar{background:var(--g1);padding:9px 2rem;display:flex;align-items:center;justify-content:space-between;font-size:12.5px;color:rgba(255,255,255,.6)}
+.topbar a{color:var(--g5);text-decoration:none}
+/* nav */
+nav{background:#fff;border-bottom:2px solid var(--gpale);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;box-shadow:0 2px 18px rgba(0,0,0,.07)}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;padding:12px 0}
+.nav-logo img{height:44px;background:var(--g2);padding:4px;border-radius:8px}
+.logo-txt{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--g2);line-height:1.2}
+.logo-sub{font-size:10px;color:var(--txt3);letter-spacing:.04em}
+.nav-links{display:flex;gap:24px;list-style:none;align-items:center}
+.nav-links a{font-size:13.5px;font-weight:500;color:var(--txt2);text-decoration:none;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--g3)}
+.nav-links a.active{border-bottom:2px solid var(--g4);padding-bottom:2px}
+.nav-cta{background:var(--g3)!important;color:#fff!important;padding:9px 20px;border-radius:8px!important;font-size:13px!important;border-bottom:none!important}
+.nav-cta:hover{background:var(--g1)!important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px}
+.hamburger span{display:block;width:22px;height:2px;background:var(--txt);border-radius:2px}
+/* page hero */
+.page-hero{background:linear-gradient(120deg,var(--g1) 0%,var(--g2) 55%,var(--g3) 100%);padding:70px 2rem 60px;text-align:center;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E")}
+.page-hero .badge{display:inline-block;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#b8f0b8;font-size:11.5px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:5px 16px;border-radius:20px;margin-bottom:16px}
+.page-hero h1{font-family:'Playfair Display',serif;font-size:clamp(30px,5vw,52px);font-weight:700;color:#fff;margin-bottom:12px;line-height:1.12;position:relative}
+.page-hero p{font-size:15.5px;color:rgba(255,255,255,.78);max-width:580px;margin:0 auto;font-weight:300}
+/* section helpers */
+.section{padding:80px 2rem}
+.section-alt{background:#fff}
+.wrap{max-width:1100px;margin:0 auto}
+.section-head{text-align:center;margin-bottom:52px}
+.section-head .lbl{display:inline-block;background:var(--gpale);color:var(--g3);font-size:11.5px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:12px}
+.section-head h2{font-family:'Playfair Display',serif;font-size:clamp(24px,3vw,36px);color:var(--g2);margin-bottom:10px}
+.section-head p{color:var(--txt3);font-size:14.5px;max-width:560px;margin:0 auto;line-height:1.7}
+/* buttons */
+.btn{display:inline-block;padding:13px 28px;border-radius:var(--r);font-size:14.5px;font-weight:500;text-decoration:none;transition:background .2s,transform .1s;cursor:pointer;border:none;font-family:'DM Sans',sans-serif}
+.btn-green{background:var(--g3);color:#fff}.btn-green:hover{background:var(--g2)}
+.btn-outline-g{background:transparent;color:var(--g3);border:1.5px solid var(--g3)}.btn-outline-g:hover{background:var(--g3);color:#fff}
+.btn-white{background:#fff;color:var(--g2)}.btn-white:hover{background:var(--gpale)}
+/* card */
+.card{background:#fff;border:1px solid var(--bdr);border-radius:var(--rl);overflow:hidden;transition:box-shadow .3s,transform .3s}
+.card:hover{box-shadow:0 12px 40px rgba(45,106,45,.14);transform:translateY(-4px)}
+/* footer */
+footer{background:var(--g1);padding:60px 2rem 28px}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;max-width:1100px;margin:0 auto 40px}
+.footer-brand img{height:58px;margin-bottom:14px}
+.footer-brand p{font-size:13px;color:rgba(255,255,255,.52);line-height:1.7;max-width:230px;margin-bottom:18px}
+.social-row{display:flex;gap:10px}
+.soc{width:36px;height:36px;background:rgba(255,255,255,.08);border-radius:8px;display:flex;align-items:center;justify-content:center;text-decoration:none;transition:background .2s}
+.soc:hover{background:var(--g3)}.soc svg{width:16px;height:16px;fill:rgba(255,255,255,.7)}
+.fcol h4{font-size:13px;font-weight:500;color:#fff;margin-bottom:14px;letter-spacing:.02em}
+.fcol ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.fcol ul li a{font-size:13px;color:rgba(255,255,255,.52);text-decoration:none;transition:color .2s}
+.fcol ul li a:hover{color:var(--g5)}
+.fline{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px}
+.fline svg{width:15px;height:15px;fill:var(--g5);flex-shrink:0;margin-top:3px}
+.fline span{font-size:13px;color:rgba(255,255,255,.52);line-height:1.5}
+.footer-btm{border-top:1px solid rgba(255,255,255,.08);padding-top:22px;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:rgba(255,255,255,.38);max-width:1100px;margin:0 auto}
+.footer-btm a{color:var(--g5);text-decoration:none}
+/* responsive */
+@media(max-width:820px){
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}.hamburger{display:flex}
+  nav{position:relative;flex-wrap:wrap}
+  .nav-links.open{display:flex;flex-direction:column;position:absolute;top:68px;left:0;right:0;background:#fff;padding:16px 24px;border-top:1px solid var(--bdr);box-shadow:0 8px 24px rgba(0,0,0,.09);gap:14px;z-index:99}
+}
+@media(max-width:560px){.footer-grid{grid-template-columns:1fr}.topbar span:first-child{display:none}}
+</style>
+<style>
+.shop-filter{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:40px}
+.filter-btn{padding:8px 18px;border:1.5px solid var(--bdr);border-radius:20px;font-size:13px;font-weight:500;color:var(--txt2);background:#fff;cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif}
+.filter-btn.active,.filter-btn:hover{background:var(--g3);color:#fff;border-color:var(--g3)}
+.shop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1100px;margin:0 auto}
+.prod-card{background:#fff;border:1px solid var(--bdr);border-radius:var(--rl);overflow:hidden;transition:box-shadow .3s,transform .3s}
+.prod-card:hover{box-shadow:0 10px 36px rgba(45,106,45,.13);transform:translateY(-3px)}
+.prod-img{height:200px;background:var(--gpale);position:relative;overflow:hidden}
+.prod-img img{width:100%;height:100%;object-fit:cover}
+.prod-badge{position:absolute;top:10px;right:10px;background:var(--g3);color:#fff;font-size:11px;padding:3px 9px;border-radius:10px;font-weight:500}
+.prod-badge.new{background:#e67e22}
+.prod-body{padding:18px 18px 22px}
+.prod-cat{font-size:11px;color:var(--g3);font-weight:500;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
+.prod-body h3{font-size:16px;font-weight:500;color:var(--txt);margin-bottom:6px}
+.prod-body p{font-size:13px;color:var(--txt3);line-height:1.6;margin-bottom:14px}
+.prod-footer{display:flex;align-items:center;justify-content:space-between}
+.prod-price{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--g2)}
+.prod-price span{font-size:12px;font-family:'DM Sans',sans-serif;color:var(--txt3);font-weight:400}
+.btn-add{padding:8px 16px;background:var(--g3);color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:500;cursor:pointer;transition:background .2s;font-family:'DM Sans',sans-serif}
+.btn-add:hover{background:var(--g2)}
+.shop-cta-band{background:var(--gpale);padding:50px 2rem;text-align:center;border-top:2px solid var(--gpale2)}
+.shop-cta-band h2{font-family:'Playfair Display',serif;font-size:clamp(22px,3vw,32px);color:var(--g2);margin-bottom:12px}
+.shop-cta-band p{font-size:14.5px;color:var(--txt2);max-width:500px;margin:0 auto 24px}
+@media(max-width:820px){.shop-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.shop-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span>📍 Haruna Towers, Kubiri, Bombo Road, Kampala, Uganda</span>
+  <span>Mon–Sat: 8am–6pm &nbsp;|&nbsp; <a href="tel:+256792170600">+256 792 170 600</a></span>
+</div>
+<nav id="mainNav">
+  <a href="https://fratelfarmagribusiness.ug/" class="nav-logo">
+    <img src="https://fratelfarmagribusiness.ug/wp-content/uploads/2025/11/cropped-fratel-farm-agribusiness-LOGO-white-150x140.png" alt="Fratel Farm Logo"/>
+    <div><div class="logo-txt">Fratel Farm</div><div class="logo-sub">Agribusiness</div></div>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="https://fratelfarmagribusiness.ug/">Home</a></li>
+<li><a href="about.html">About Us</a></li>
+<li><a href="services.html">Our Services</a></li>
+<li><a href="blog.html">Blog</a></li>
+<li><a href="shop.html" class="active">Shop</a></li>
+
+    <li><a href="inquiry.html" class="nav-cta">Inquire Now</a></li>
+  </ul>
+  <button class="hamburger" id="ham"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="page-hero">
+  <div class="badge">Our Shop</div>
+  <h1>Fratel Farm Agribusiness Shop</h1>
+  <p>Offering the best prices on agribusiness products. Quality feeds, equipment, livestock, and farm inputs — all in one place.</p>
+</div>
+
+<section class="section section-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="lbl">Shop by Category</div>
+      <h2>Browse Our Products</h2>
+      <p>Everything your farm needs, sourced and quality-checked by our team</p>
+    </div>
+
+    <div class="shop-filter">
+      <button class="filter-btn active" onclick="filterShop('all',this)">All Products</button>
+      <button class="filter-btn" onclick="filterShop('feeds',this)">Animal Feeds</button>
+      <button class="filter-btn" onclick="filterShop('equipment',this)">Equipment</button>
+      <button class="filter-btn" onclick="filterShop('animals',this)">Livestock</button>
+      <button class="filter-btn" onclick="filterShop('proposals',this)">Business Proposals</button>
+    </div>
+
+    <div class="shop-grid" id="shopGrid">
+      <div class="prod-card" data-cat="feeds">
+        <div class="prod-img"><img src="https://fratelfarmagribusiness.ug/wp-content/uploads/2026/01/ChatGPT-Image-Jan-22-2026-08_00_17-AM-1024x683.png" alt="Poultry Feeds"/><span class="prod-badge">Best Seller</span></div>
+        <div class="prod-body">
+          <div class="prod-cat">Poultry Feeds</div>
+          <h3>Layers Mash (50kg)</h3>
+          <p>High-quality nutritionally balanced layer feed for improved egg production and bird health.</p>
+          <div class="prod-footer"><div class="prod-price">UGX 85,000 <span>/ bag</span></div><button class="btn-add" onclick="inquireProduct('Layers Mash 50kg')">Inquire</button></div>
+        </div>
+      </div>
+      <div class="prod-card" data-cat="feeds">
+        <div class="prod-img"><img src="https://fratelfarmagribusiness.ug/wp-content/uploads/2026/01/ChatGPT-Image-Jan-22-2026-08_00_17-AM-1024x683.png" alt="Pig Feeds"/></div>
+        <div class="prod-body">
+          <div class="prod-cat">Pig Feeds</div>
+          <h3>Sow & Weaner Feed (50kg)</h3>
+          <p>Specially formulated feed for sows and weaners to maximise growth and reproductive performance.</p>
+          <div class="prod-footer"><div class="prod-price">UGX 90,000 <span>/ bag</span></div><button class="btn-add" onclick="inquireProduct('Sow and Weaner Feed 50kg')">Inquire</button></div>
+        </div>
+      </div>
+      <div class="prod-card" data-cat="feeds">
+        <div class="prod-img"><img src="https://fratelfarmagribusiness.ug/wp-content/uploads/2026/01/ChatGPT-Image-Jan-22-2026-08_00_17-AM-1024x683.png" alt="Dairy Feeds"/></div>
+        <div class="prod-body">
+          <div class="prod-cat">Dairy Feeds</div>
+          <h3>Dairy Meal (50kg)</h3>
+          <p>Premium dairy meal formulation to support high milk yield and optimal cow health.</p>
+          <div class="prod-footer"><div class="prod-price">UGX 95,000 <span>/ bag</span></div><button class="btn-add" onclick="inquireProduct('Dairy Meal 50kg')">Inquire</button></div>
+        </div>
+      </div>
+      <div class="prod-card" data-cat="equipment">
+        <div class="prod-img"><img src="https://fratelfarmagribusiness.ug/wp-content/uploads/2026/01/ChatGPT-Image-Jan-22-2026-07_53_58-AM.jpg" alt="Drinkers"/><span class="prod-badge new">New</span></div>
+        <div class="prod-body">
+          <div class="prod-cat">Livestock Equipment</div>
+          <h3>Automatic Poultry Drinkers</h3>
+          <p>Nipple drinker systems to reduce water waste and maintain bird hygiene.</p>
+          <div class="prod-footer"><div class="prod-price">UGX 35,000 <span>/ unit</span></div><button class="btn-add" onclick="inquireProduct('Automatic Poultry Drinkers')">Inquire</button></div>
+        </div>
+      </div>
+      <div class="prod-card" data-cat="equipment">
+        <div class="prod-img"><img src="https://fratelfarmagribusiness.ug/wp-content/uploads/2026/01/ChatGPT-Image-Jan-22-2026-07_53_58-AM.jpg" alt="Feed Troughs"/></div>
+        <div class="prod-body">
+          <div class="prod-cat">Livestock Equipment</div>
+          <h3>Pig Feed Troughs (Galvanised)</h3>
+          <p>Heavy-duty galvanised steel feed troughs designed for piggery housing units.</p>
+          <div class="prod-footer"><div class="prod-price">UGX 65,000 <span>/ unit</span></div><button class="btn-add" onclick="inquireProduct('Pig Feed Troughs Galvanised')">Inquire</button></div>
+        </div>
+      </div>
+      <div class="prod-card" data-cat="animals">
+        <div class="prod-img"><img src="https://fratelfarmagribusiness.ug/wp-content/uploads/2026/02/goats_7-Photo.jpg" alt="Goats"/><span class="prod-badge">In Stock</span></div>
+        <div class="prod-body">
+          <div class="prod-cat">Livestock</div>
+          <h3>Improved Boer Goats</h3>
+          <p>High-quality Boer crossbreeds for meat production — fast growth, good carcass quality.</p>
+          <div class="prod-footer"><div class="prod-price">UGX 450,000 <span>/ head</span></div><button class="btn-add" onclick="inquireProduct('Improved Boer Goats')">Inquire</button></div>
+        </div>
+      </div>
+      <div class="prod-card" data-cat="animals">
+        <div class="prod-img"><img src="https://fratelfarmagribusiness.ug/wp-content/uploads/2026/02/goats-9.jpg" alt="F1 Pigs"/></div>
+        <div class="prod-body">
+          <div class="prod-cat">Livestock</div>
+          <h3>F1 Hybrid Pigs (Weaners)</h3>
+          <p>High-performing F1 hybrid weaners with excellent feed conversion and fast market weight attainment.</p>
+          <div class="prod-footer"><div class="prod-price">UGX 350,000 <span>/ head</span></div><button class="btn-add" onclick="inquireProduct('F1 Hybrid Pigs Weaners')">Inquire</button></div>
+        </div>
+      </div>
+      <div class="prod-card" data-cat="proposals">
+        <div class="prod-img"><img src="https://fratelfarmagribusiness.ug/wp-content/uploads/2026/01/ChatGPT-Image-Jan-22-2026-07_27_35-AM-1024x683.png" alt="Piggery Proposal"/><span class="prod-badge new">Digital</span></div>
+        <div class="prod-body">
+          <div class="prod-cat">Business Proposals</div>
+          <h3>Piggery Investment Proposal</h3>
+          <p>Full bankable piggery business plan with ROI projections, cashflow schedules, and construction budget.</p>
+          <div class="prod-footer"><div class="prod-price">UGX 150,000</div><button class="btn-add" onclick="inquireProduct('Piggery Investment Proposal')">Order Now</button></div>
+        </div>
+      </div>
+      <div class="prod-card" data-cat="proposals">
+        <div class="prod-img"><img src="https://fratelfarmagribusiness.ug/wp-content/uploads/2026/01/ChatGPT-Image-Jan-22-2026-07_27_35-AM-1024x683.png" alt="Poultry Proposal"/></div>
+        <div class="prod-body">
+          <div class="prod-cat">Business Proposals</div>
+          <h3>Poultry (Layers) Investment Proposal</h3>
+          <p>Detailed layers farming proposal with egg production projections, market analysis, and full cost breakdown.</p>
+          <div class="prod-footer"><div class="prod-price">UGX 150,000</div><button class="btn-add" onclick="inquireProduct('Poultry Layers Investment Proposal')">Order Now</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="shop-cta-band">
+  <h2>Can't Find What You're Looking For?</h2>
+  <p>We stock a wide range of products not listed here. Send us an inquiry and we'll source exactly what your farm needs.</p>
+  <a href="inquiry.html" class="btn btn-green">Make a Custom Order →</a>
+</div>
+
+<script>
+function filterShop(cat,btn){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.prod-card').forEach(c=>{
+    if(cat==='all'||c.dataset.cat===cat){c.style.display='';} else {c.style.display='none';}
+  });
+}
+function inquireProduct(name){
+  window.location.href='inquiry.html?product='+encodeURIComponent(name);
+}
+</script>
+
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="https://fratelfarmagribusiness.ug/wp-content/uploads/2025/11/fratel-farm-agribusiness-LOGO-white-300x279.png" alt="Logo"/>
+      <p>We're here to support your agribusiness journey from the ground up. Build, manage and grow with us.</p>
+      <div class="social-row">
+        <a href="https://www.tiktok.com/@olupotsilver" class="soc"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.24 8.24 0 004.82 1.56V6.82a4.85 4.85 0 01-1.05-.13z"/></svg></a>
+        <a href="https://x.com/silverolupot4" class="soc"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        <a href="http://www.youtube.com/@FratelFarmAgribusiness" class="soc"><svg viewBox="0 0 24 24"><path d="M21.543 6.498C22 8.28 22 12 22 12s0 3.72-.457 5.502c-.254.985-.997 1.76-1.938 2.022C17.896 20 12 20 12 20s-5.893 0-7.605-.476c-.941-.262-1.684-1.037-1.938-2.022C2 15.72 2 12 2 12s0-3.72.457-5.502c.254-.985.997-1.76 1.938-2.022C6.107 4 12 4 12 4s5.896 0 7.605.476c.941.262 1.684 1.037 1.938 2.022zM10 15.5l6-3.5-6-3.5v7z"/></svg></a>
+        <a href="https://www.linkedin.com/in/olupot-silver-b7363b22b/" class="soc"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+      </div>
+    </div>
+    <div class="fcol">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="https://fratelfarmagribusiness.ug/">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Our Services</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="inquiry.html">Inquire Now</a></li>
+      </ul>
+    </div>
+    <div class="fcol">
+      <h4>Our Services</h4>
+      <ul>
+        <li><a href="https://fratelfarmagribusiness.ug/piggery-farming/">Piggery Farming</a></li>
+        <li><a href="https://fratelfarmagribusiness.ug/poultry-farming/">Poultry Farming</a></li>
+        <li><a href="https://fratelfarmagribusiness.ug/cattle-farming/">Cattle Farming</a></li>
+        <li><a href="https://fratelfarmagribusiness.ug/goat-farming/">Goat Farming</a></li>
+        <li><a href="https://fratelfarmagribusiness.ug/farm-designs/">Farm Designs</a></li>
+        <li><a href="https://fratelfarmagribusiness.ug/farm-equipment/">Farm Equipment</a></li>
+      </ul>
+    </div>
+    <div class="fcol">
+      <h4>Contact Us</h4>
+      <div class="fline"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg><span>Haruna Towers, Kubiri, Bombo Road, Kampala</span></div>
+      <div class="fline"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg><span>+256 792 170 600</span></div>
+      <div class="fline"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg><span>fratelagribusiness@gmail.com</span></div>
+    </div>
+  </div>
+  <div class="footer-btm">
+    <span>© 2026 Fratel Farm Agribusiness. All rights reserved.</span>
+    <a href="https://fratelfarmagribusiness.ug/">fratelfarmagribusiness.ug</a>
+  </div>
+</footer>
+<script>
+const ham=document.getElementById('ham'),nl=document.getElementById('navLinks');
+if(ham) ham.addEventListener('click',()=>nl.classList.toggle('open'));
+</script>
+</body>
+</html>
